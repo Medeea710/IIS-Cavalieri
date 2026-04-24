@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La nostra scuola</title>
     <style>
-        /* Reset e Stili Base */
+        /* Reset e stili base */
         * {
             margin: 0;
             padding: 0;
@@ -14,17 +14,20 @@
 
         body, html {
             height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #fff;
+            overflow: hidden; /* Impedisce lo scroll standard del body */
         }
 
-        /* Contenitore Slide con Scroll Snap */
+        /* Contenitore principale con effetto Scroll Snap */
         .container {
             height: 100vh;
             overflow-y: scroll;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y mandatory; /* Forza l'aggancio alle slide */
+            scroll-behavior: smooth;
         }
 
+        /* Stile di ogni singola Slide */
         section {
             height: 100vh;
             width: 100%;
@@ -32,60 +35,48 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            scroll-snap-align: start;
-            position: relative;
-            padding: 20px;
+            padding: 40px;
             text-align: center;
+            scroll-snap-align: start; /* Punto di aggancio */
         }
 
-        /* Stile Titolo */
-        header {
+        h1.main-title {
             position: fixed;
-            top: 0;
+            top: 20px;
             width: 100%;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8rem;
+            text-align: center;
+            z-index: 100;
+            font-size: 2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Stile Slide */
-        .slide-1 { background-color: #f8f9fa; }
-        .slide-2 { background-color: #e9ecef; }
-        .slide-3 { background-color: #dee2e6; }
-
-        /* Contenitore Canva Embed */
-        .canva-wrapper {
-            position: relative;
-            width: 100%;
-            height: 80%;
-            max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-radius: 12px;
-            overflow: hidden;
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
-        .canva-wrapper iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border: none;
+        p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            line-height: 1.6;
         }
 
+        /* Colori diversi per ogni slide (Personalizzali!) */
+        .slide-1 { background-color: #3498db; } /* Blu */
+        .slide-2 { background-color: #2ecc71; } /* Verde */
+        .slide-3 { background-color: #e67e22; } /* Arancione */
+        .slide-4 { background-color: #9b59b6; } /* Viola */
+        .slide-5 { background-color: #34495e; } /* Grigio scuro */
+
+        /* Indicatore per scorrere */
         .scroll-hint {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             font-size: 0.9rem;
-            color: #7f8c8d;
+            opacity: 0.8;
             animation: bounce 2s infinite;
         }
 
@@ -98,32 +89,34 @@
 </head>
 <body>
 
-    <header>
-        <h1>La nostra scuola</h1>
-    </header>
+    <h1 class="main-title">La nostra scuola</h1>
 
     <div class="container">
         
         <section class="slide-1">
-            <div class="canva-wrapper">
-                <iframe src="https://www.canva.com/design/DAF_v2p8A0E/view?embed" 
-                        allowfullscreen="allowfullscreen" allow="fullscreen">
-                </iframe>
-            </div>
-            <div class="scroll-hint">Scorri verso il basso per esplorare ↓</div>
+            <h2>Benvenuti</h2>
+            <p>Inserisci qui la presentazione generale della scuola che trovi nella prima slide di Canva.</p>
+            <div class="scroll-hint">Scorri verso il basso ↓</div>
         </section>
 
         <section class="slide-2">
-            <h2>I Nostri Valori</h2>
-            <p style="max-width: 600px; margin-top: 20px;">
-                La nostra scuola si impegna a fornire un'educazione d'eccellenza, 
-                promuovendo la creatività e l'innovazione tecnologica.
-            </p>
+            <h2>La nostra Mission</h2>
+            <p>Copia qui le informazioni relative agli obiettivi e ai valori della tua scuola dalla seconda slide.</p>
         </section>
 
         <section class="slide-3">
-            <h2>Vieni a trovarci</h2>
-            <p>Sede Centrale - Via dell'Istruzione, 1</p>
+            <h2>I nostri Indirizzi</h2>
+            <p>Inserisci qui l'elenco dei corsi o delle attività principali descritte nella presentazione.</p>
+        </section>
+
+        <section class="slide-4">
+            <h2>Progetti e Laboratori</h2>
+            <p>Descrivi qui i laboratori o i progetti extra-curriculari presenti nelle tue slide.</p>
+        </section>
+
+        <section class="slide-5">
+            <h2>Contattaci</h2>
+            <p>Inserisci qui indirizzo, email e numeri di telefono della scuola.</p>
         </section>
 
     </div>
