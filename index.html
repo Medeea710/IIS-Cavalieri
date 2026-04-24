@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La nostra scuola</title>
+    <title>La nostra scuola - Presentazione</title>
     <style>
-        /* Reset e stili base */
+        /* Reset e Stili Base */
         * {
             margin: 0;
             padding: 0;
@@ -14,112 +14,126 @@
 
         body, html {
             height: 100%;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #fff;
-            overflow: hidden; /* Impedisce lo scroll standard del body */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden; /* Impedisce lo scroll del body per usare quello del container */
         }
 
-        /* Contenitore principale con effetto Scroll Snap */
-        .container {
+        /* Intestazione Fissa */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Contenitore delle Slide (Scroll Snap) */
+        .slider-container {
             height: 100vh;
             overflow-y: scroll;
-            scroll-snap-type: y mandatory; /* Forza l'aggancio alle slide */
+            scroll-snap-type: y mandatory; /* Forza l'aggancio verticale */
             scroll-behavior: smooth;
         }
 
-        /* Stile di ogni singola Slide */
-        section {
+        /* Singola Slide */
+        .slide {
             height: 100vh;
             width: 100%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px;
-            text-align: center;
             scroll-snap-align: start; /* Punto di aggancio */
+            padding: 80px 20px 20px 20px; /* Spazio per l'header fissa */
         }
 
-        h1.main-title {
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            text-align: center;
-            z-index: 100;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .slide img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            object-fit: contain; /* Mantiene le proporzioni senza tagliare */
+            background-color: white;
         }
 
-        h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+        /* Colori di sfondo alternati per dare ritmo */
+        .slide:nth-child(odd) { background-color: #ffffff; }
+        .slide:nth-child(even) { background-color: #f9f9f9; }
 
-        p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            line-height: 1.6;
-        }
-
-        /* Colori diversi per ogni slide (Personalizzali!) */
-        .slide-1 { background-color: #3498db; } /* Blu */
-        .slide-2 { background-color: #2ecc71; } /* Verde */
-        .slide-3 { background-color: #e67e22; } /* Arancione */
-        .slide-4 { background-color: #9b59b6; } /* Viola */
-        .slide-5 { background-color: #34495e; } /* Grigio scuro */
-
-        /* Indicatore per scorrere */
+        /* Indicatore di scorrimento */
         .scroll-hint {
-            position: absolute;
-            bottom: 30px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #7f8c8d;
             animation: bounce 2s infinite;
+            z-index: 500;
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-10px);}
+            60% {transform: translateX(-50%) translateY(-5px);}
         }
     </style>
 </head>
 <body>
 
-    <h1 class="main-title">La nostra scuola</h1>
+    <header>
+        <h1>La nostra scuola</h1>
+    </header>
 
-    <div class="container">
+    <div class="slider-container">
         
-        <section class="slide-1">
-            <h2>Benvenuti</h2>
-            <p>Inserisci qui la presentazione generale della scuola che trovi nella prima slide di Canva.</p>
-            <div class="scroll-hint">Scorri verso il basso ↓</div>
-        </section>
+        <div class="slide">
+            <img src="IMG_7781.jpeg" alt="Presentazione IIS Cavalieri Marignoni">
+        </div>
 
-        <section class="slide-2">
-            <h2>La nostra Mission</h2>
-            <p>Copia qui le informazioni relative agli obiettivi e ai valori della tua scuola dalla seconda slide.</p>
-        </section>
+        <div class="slide">
+            <img src="IMG_7782.jpeg" alt="Giornata delle Arti e delle scienze">
+        </div>
 
-        <section class="slide-3">
-            <h2>I nostri Indirizzi</h2>
-            <p>Inserisci qui l'elenco dei corsi o delle attività principali descritte nella presentazione.</p>
-        </section>
+        <div class="slide">
+            <img src="IMG_7783.jpeg" alt="Opera IIS Cavalieri Marignoni">
+        </div>
 
-        <section class="slide-4">
-            <h2>Progetti e Laboratori</h2>
-            <p>Descrivi qui i laboratori o i progetti extra-curriculari presenti nelle tue slide.</p>
-        </section>
+        <div class="slide">
+            <img src="IMG_7784.jpeg" alt="Descrizione Ceramica">
+        </div>
 
-        <section class="slide-5">
-            <h2>Contattaci</h2>
-            <p>Inserisci qui indirizzo, email e numeri di telefono della scuola.</p>
-        </section>
+        <div class="slide">
+            <img src="IMG_7785.jpeg" alt="Processo Ceramica Policroma">
+        </div>
+
+        <div class="slide">
+            <img src="IMG_7786.jpeg" alt="Museo delle Ceramiche">
+        </div>
+
+        <div class="slide">
+            <img src="IMG_7787.jpeg" alt="Curiosità Ceramica in Italia">
+        </div>
+
+        <div class="slide">
+            <img src="IMG_7788.jpeg" alt="Ringraziamenti finali">
+        </div>
 
     </div>
+
+    <div class="scroll-hint">Scorri per esplorare ↓</div>
 
 </body>
 </html>
